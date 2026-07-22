@@ -1,0 +1,22 @@
+div {
+    border: 2px solid black;
+    width: 200px;
+    height: 200px;
+}
+
+body {
+    display: flex;
+    height: 1em;
+    width: 1em;
+}
+
+content {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.top-section,
+.bottom-section {
+    flex-grow: 1;
+}
