@@ -61,7 +61,11 @@ body {
     min-height: 240px;
     min-width: 150px;
     text-align: center;
-    border: 3px double blue;
+    border-width: 10px;
+    border-style: solid;
+    border-image-source: url("images/cardBorder.png");
+    border-image-slice: 5;
+    border-image-repeat: repeat;
     border-radius: 5px;
     background-color: #FFFBF5;
 }
