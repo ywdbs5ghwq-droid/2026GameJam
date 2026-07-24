@@ -15,6 +15,7 @@ let six = "6";
 let seven = "7";
 let eight = "8";
 
+
 let personal = [one, two, three, four];
 let hand = [];
 let play = [];
@@ -23,13 +24,16 @@ let time = 60;
 let happy = 100;
 
 function initializeBoard() {
-    for(i=0;i<3;i++){
-        var rand = Math.floor(Math.random() * personal.length);
-        hand.push(personal[rand])
-        hand.push(i)
-        personal.pop(personal[rand]) //change later to 4
+    console.log("Personal contains: "+personal+"\nHand contains: "+hand);
+    if (hand.length !== 4) {
+        for(i=0; i<4; i++){
+            let rand = Math.floor(Math.random() * personal.length);
+            hand.push(personal[rand]);
+            personal.splice(rand, 1);
+        }
+        console.log("Operation \"initializeBoard()\" complete!");
+        console.log("Personal now contains: "+personal+"\nHand now contains: "+hand.toString());
     }
-    alert(hand)
 }
 
 function gameLoop() {
