@@ -1,11 +1,10 @@
 body {
-    height: 90vh;
     padding: 1%;
-    display: flex;
 }
 
 .content {
-    flex-grow: 1;
+    box-sizing: border-box;
+    height: 90vh;
     border: 2px solid black;   
     background-color: #451A1A;
     padding: 50px; 
@@ -58,8 +57,8 @@ body {
 /* bottom section */
 .card,
 .shopCard {
-    min-height: 240px;
-    min-width: 150px;
+    height: 240px;
+    width: 150px;
     text-align: center;
     border-width: 10px;
     border-style: solid;
@@ -103,13 +102,20 @@ body {
 
 /* shop */
 .shop {
-    background-color: #451A1A;
-    height: 75%;
-    width: 75%;
-    display: flex;
-    justify-content: space-around;
-    padding: 50px;
+    height: 90vh;
     box-sizing: border-box;
+    background-color: #451A1A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-box {
+    width: 100%;
+    display: flex;
+    padding: 50px;
+    justify-content: space-around;
 }
 
 .content {
@@ -117,14 +123,17 @@ body {
 }
 
 .cardBox {
-    width: 18%;
-    min-height: min-content;
-    height: 70%;
-    padding: 10px;
+    width: 22%;
+    height: min-content;
+    padding: 50px 10px;
     background-image: url(images/cardBox-background.png);
     border: 3px solid white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#shopButton {
+    width: fit-content;
 }
