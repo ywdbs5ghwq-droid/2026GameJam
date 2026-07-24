@@ -1,25 +1,37 @@
 let happinessMeter = document.getElementById("happiness-meter");
 let timer = document.getElementById("timer");
 
-const global = {
-    card1 : document.getElementById("card1"),
-    card2 : document.getElementById("card2"),
-    card3 : document.getElementById("card3"),
-    card4 : document.getElementById("card4"),
-}
- //I have officially reached my lowest point.
-//ok yh this is probably easily reassigned with a loop leave me alone >:P I'll do it later
-let personal = [card1, card2];
+let card1 = document.getElementById("card1");
+let card2 = document.getElementById("card2");
+let card3 = document.getElementById("card3");
+let card4 = document.getElementById("card4");
+
+let one = "1";
+let two = "2";
+let three = "3";
+let four = "4";
+let five = "5";
+let six = "6";
+let seven = "7";
+let eight = "8";
+
+let personal = [one, two, three, four];
 let hand = [];
+let play = [];
 let points = 0;
 let time = 60;
 let happy = 100;
-while(time!=0){
-    for(i=0;i<personal.length + 1;i++){
+
+function initializeBoard() {
+    for(i=0;i<3;i++){
         var rand = Math.floor(Math.random() * personal.length);
         hand.push(personal[rand])
         hand.push(i)
-        personal.pop(personal[rand])
+        personal.pop(personal[rand]) //change later to 4
     }
-    time = 0
+    alert(hand)
+}
+
+function gameLoop() {
+
 }
