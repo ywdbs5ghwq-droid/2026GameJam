@@ -20,9 +20,9 @@ let five = ["FIVE", "<description>", 1, 1];
 let six = ["SIX", "<description>", 1, 1];
 let seven = ["SEVEN", "<description>", 1, 1];
 let eight = ["EIGHT", "<description>", 1, 1];
-let ph1 = ["placeholder1"];
-let ph2 = ["placeholder2"];
-let ph3 = ["placeholder3"];
+let ph1 = ["PLACEHOLDER1"];
+let ph2 = ["PLACEHOLDER2"];
+let ph3 = ["PLACEHOLDER3"];
 
 let personal = [one, two, three, four, ph1, ph2, ph3];
 let hand = [];
@@ -33,21 +33,30 @@ let happy = 100;
 
 function initializeBoard() {
     console.log("Personal contains: "+personal+"\nHand contains: "+hand);
-    if (hand.length !== 4) {
-        for(i=0; i<4; i++){
-            let rand = Math.floor(Math.random() * personal.length);
-            hand.push(personal[rand]);
-            personal.splice(rand, 1);
+    if (hand.length !== 4) { dealHand() }
+    else {
+        for (let i = 0; i<4; i++) {
+            personal.push(hand[i]);
+            hand.splice(i, 1);
         }
-        console.log("Operation \"initializeBoard()\" complete!");
-        console.log("Personal now contains: "+personal+"\nHand now contains: "+hand.toString());
+        dealHand()
     }
+    console.log("Operation \"initializeBoard()\" complete!");
+    console.log("Personal now contains: "+personal);
+    console.log("Hand now contains: "+hand)
 }
 
 function gameLoop() {
 
 }
 
+function dealHand() {
+    for(i=0; i<4; i++){
+        let rand = Math.floor(Math.random() * personal.length);
+        hand.push(personal[rand]);
+        personal.splice(rand, 1);
+    }
+}
 
 document.addEventListener("keydown", () => {
     shop.setAttribute("style", "display: flex;")
