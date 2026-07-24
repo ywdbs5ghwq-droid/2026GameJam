@@ -105,7 +105,7 @@ body {
     height: 90vh;
     box-sizing: border-box;
     background-color: #451A1A;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -116,10 +116,6 @@ body {
     display: flex;
     padding: 50px;
     justify-content: space-around;
-}
-
-.content {
-    display: none;
 }
 
 .cardBox {

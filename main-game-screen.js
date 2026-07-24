@@ -48,9 +48,15 @@ function gameLoop() {
 
 }
 
+
+document.addEventListener("keydown", () => {
+    shop.setAttribute("style", "display: flex;")
+    content.setAttribute("style", "display: none;")  
+});
+
 // below this point handles the html elements on the screen and gives them functionality
 
 shopButton.addEventListener("click", () => {
     shop.setAttribute("style", "display: none;")
     content.setAttribute("style", "display: flex;")
-})
+});
