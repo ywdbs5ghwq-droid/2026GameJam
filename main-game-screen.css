@@ -58,10 +58,12 @@ body {
 /* bottom section */
 .card,
 .shopCard {
-    height: 240px;
-    width: 150px;
+    min-height: 240px;
+    min-width: 150px;
     text-align: center;
     border: 3px double blue;
+    border-radius: 5px;
+    background-color: #FFFBF5;
 }
 
 #personalDeck {
@@ -108,4 +110,17 @@ body {
 
 .content {
     display: none;
+}
+
+.cardBox {
+    width: 18%;
+    min-height: min-content;
+    height: 70%;
+    padding: 10px;
+    background-image: url(images/cardBox-background.png);
+    border: 3px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
