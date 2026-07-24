@@ -64,10 +64,6 @@ body {
     flex-shrink: 1;
 }
 
-.hideDescription {
-    display: none;
-}
-
 #personalDeck {
     background-color: green;
     border-color: black;
