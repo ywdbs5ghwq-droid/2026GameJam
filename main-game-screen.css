@@ -56,12 +56,12 @@ body {
 
 
 /* bottom section */
-.card {
+.card,
+.shopCard {
     height: 240px;
     width: 150px;
     text-align: center;
     border: 3px double blue;
-    flex-shrink: 1;
 }
 
 #personalDeck {
@@ -97,5 +97,15 @@ body {
 
 /* shop */
 .shop {
+    background-color: #451A1A;
+    height: 75%;
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.content {
     display: none;
 }
