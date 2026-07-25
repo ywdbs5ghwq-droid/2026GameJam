@@ -10,43 +10,56 @@
     <div class="content">
         <div class="top-section">
             <canvas id="happiness-meter"></canvas>
-            <div id="timer">TIME LEFT:</div>
+            <p id="timer">TIME LEFT:</p>
         </div>
 
         <div class="bottom-section">
             <div class="card" id="card1">
                 card 1 
                 <p></p>
-                <p class="hideDescription">I'm a description. Now you see me, now you don't!</p>
             </div>
 
             <div class="card" id="card2">
                 card 2
                 <p></p> 
-                <p class="hideDescription">I'm a description. Now you see me, now you don't!</p>
             </div>
 
             <div class="card" id="card3" title="let's try this again.">
                 card 3
                 <p></p>
-                <p class="hideDescription">I'm a description. Now you see me, now you don't!</p>
             </div>
 
             <div class="card" id="card4">
                 card 4
                 <p></p>
-                <p class="hideDescription">I'm a description. Now you see me, now you don't!</p>
             </div>
 
             <div class="card" id="personalDeck">
                 personal deck
+                <p></p>
             </div>
             <div id="play">PLAY</div>
         </div>
     </div>
 
     <div class="shop">
-        Hey! i'm the shop. I will contain three potential cards that you can buy and add to your deck :)
+        <div class="shop-box">
+            <div class="cardBox">
+                <div class="shopCard">I am an option for a card that may be bought at a shop.</div>
+                <p>hey i'm a description for this card</p>
+            </div>
+            
+            <div class="cardBox">
+                <div class="shopCard">I am an option for a card that may be bought at a shop.</div>
+                <p>hey, i'm also a description for this card</p>
+            </div>
+            
+            <div class="cardBox">
+                <div class="shopCard">I am an option for a card that may be bought at a shop.</div>
+                <p>wassup, I too am a description!</p>
+            </div>
+        </div>
+        <button id="shopButton">SELECT</button>
     </div>
 
     <script src="main-game-screen.js"></script>
