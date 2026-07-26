@@ -35,14 +35,8 @@ let happy = 100;
 
 function initializeBoard() {
     console.log("Personal contains: "+personal+"\nHand contains: "+hand);
-    if (hand.length !== 4) { dealHand() }
-    else {
-        for (let i = 0; i<4; i++) {
-            personal.push(hand[i]);
-            hand.splice(i, 1);
-        }
-        dealHand()
-    }
+    transferHand()
+    dealHand()
     console.log("Operation \"initializeBoard()\" complete!");
     console.log("Personal now contains: "+personal);
     console.log("Hand now contains: "+hand)
@@ -51,9 +45,7 @@ function initializeBoard() {
 }
 
 function turn() {
-        setText()
-        transferHand()
-        dealHand()
+        initializeBoard()
         playHand()
         console.log(hand)
     }
@@ -97,6 +89,17 @@ function setText() {
     happinessMeter.textContent = happy;
 }
 
+function cardsToPlay() {
+    for (let i = 0; i < 4; i++) {
+        for (let g = 0; g < 4; g++) {
+            if (hand[g][0] == (play[i]).firstChild.textContent) {
+                play[i] = hand[g]
+                break;
+                }
+        }
+    }
+    return play;
+}
 
 
 document.addEventListener("keydown", () => {
@@ -120,10 +123,16 @@ cards.forEach( (card) => {
         card.addEventListener("mouseleave", () => {
             card.setAttribute("style", "background-color: #FFFBF5;")
         });
-//        card.addEventListener("click", () => {
-//            if (play.includes(card)) { play.splice(play.indexOf(card), 1 ) }
-//            else {play.push(card)};
-//            displayPos();
-//        }); 
+       card.addEventListener("click", () => {
+            if (play.includes(card)) { play.splice(play.indexOf(card), 1 ) }
+            else {play.push(card)};
+            displayPos();
+        }); 
     }
 })
+
+function displayPos() {
+    cards.forEach( function (card) {
+        card.lastChild.textContent = (play.indexOf(card) == -1 ) ? "" : "Position "+(play.indexOf(card)+1);
+    })
+}
