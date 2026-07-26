@@ -15,14 +15,14 @@ const card4 = document.getElementById("card4");
 const cards = document.querySelectorAll(".card");
 
 // syntax for cards: name, description, time decrease
-let one = ["ONE", "<description>", 3];
-let two = ["TWO", "<description>", 3];
-let three = ["THREE", "<description>", 3];
-let four = ["FOUR", "<description>", 3];
-let five = ["FIVE", "<description>", 3];
-let six = ["SIX", "<description>", 3];
-let seven = ["SEVEN", "<description>", 3];
-let eight = ["EIGHT", "<description>", 3];
+let one = ["ONE", "<description>", 1];
+let two = ["TWO", "<description>", 1];
+let three = ["THREE", "<description>", 1];
+let four = ["FOUR", "<description>", 1];
+let five = ["FIVE", "<description>", 1];
+let six = ["SIX", "<description>", 1];
+let seven = ["SEVEN", "<description>", 1];
+let eight = ["EIGHT", "<description>", 1];
 let ph1 = ["PLACEHOLDER1", "<description>", 3];
 let ph2 = ["PLACEHOLDER2", "<description>", 3];
 let ph3 = ["PLACEHOLDER3", "<description>", 3];
@@ -54,7 +54,7 @@ function initializeBoard() {
 }
 
 function turn() {
-    happy = happy - 3;
+    happy = happy - 10;
     initializeBoard();
     console.log(hand);
     if (time == 0) {timer.textContent = "You won!"}
@@ -113,10 +113,10 @@ playButton.addEventListener("click", () => {
 });
 
 
-document.addEventListener("keydown", () => {
+function openShop() {
     shop.setAttribute("style", "display: flex;")
     content.setAttribute("style", "display: none;")  
-});
+}
 
 document.addEventListener("load", initializeBoard());
 
