@@ -1,6 +1,7 @@
 //declaring all of the variables needed to manipulate content on main screen and shop screen. Constant because they have no reason to change.
 const happinessMeter = document.getElementById("happiness-meter");
 const timer = document.getElementById("timer");
+const playButton = document.getElementById("play")
 
 const shopButton = document.querySelector("#shopButton");
 const shop = document.querySelector(".shop");
@@ -33,7 +34,15 @@ let money = 0; // money: flat value of level + bonus (depends on happiness & tim
 let time = 60;
 let happy = 100;
 
+
+function playGame() {
+    while (time > 0) {turn()}
+    
+}
+
+
 function initializeBoard() {
+    play = [];
     console.log("Personal contains: "+personal+"\nHand contains: "+hand);
     transferHand()
     dealHand()
@@ -45,11 +54,11 @@ function initializeBoard() {
 }
 
 function turn() {
-        initializeBoard()
-        playHand()
-        console.log(hand)
-    }
-
+    happy = happy - 3;
+    initializeBoard();
+    console.log(hand);
+    if (time == 0) {timer.textContent = "You won!"}
+}
 
 
 function transferHand() {
@@ -89,23 +98,27 @@ function setText() {
     happinessMeter.textContent = happy;
 }
 
-function cardsToPlay() {
+playButton.addEventListener("click", () => { 
     for (let i = 0; i < 4; i++) {
         for (let g = 0; g < 4; g++) {
             if (hand[g][0] == (play[i]).firstChild.textContent) {
                 play[i] = hand[g]
                 break;
-                }
+            }
         }
     }
-    return play;
-}
+    console.log(play);
+    playHand();
+    turn();
+});
 
 
 document.addEventListener("keydown", () => {
     shop.setAttribute("style", "display: flex;")
     content.setAttribute("style", "display: none;")  
 });
+
+document.addEventListener("load", initializeBoard());
 
 // below this point handles the html elements on the screen and gives them functionality
 
