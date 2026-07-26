@@ -11,6 +11,8 @@ const card2 = document.getElementById("card2");
 const card3 = document.getElementById("card3");
 const card4 = document.getElementById("card4");
 
+const cards = document.querySelectorAll(".card");
+
 // syntax for cards: name, description, time decrease
 let one = ["ONE", "<description>", 3];
 let two = ["TWO", "<description>", 3];
@@ -44,20 +46,28 @@ function initializeBoard() {
     console.log("Operation \"initializeBoard()\" complete!");
     console.log("Personal now contains: "+personal);
     console.log("Hand now contains: "+hand)
-    timer.textContent = "TIME LEFT: "+time + "min";
-    gameLoop()
+    //gameLoop()
+    setText()
 }
 
-function gameLoop() {
-    while (time > 0) {
-        timer.textContent = "TIME LEFT: "+time + "min";
-        happinessMeter.textContent = happy;
+function turn() {
+        setText()
+        transferHand()
         dealHand()
         playHand()
+        console.log(hand)
     }
-    timer.textContent = "TIME LEFT: "+time + "min";
-    happinessMeter.textContent = happy;
-    alert("You won!")
+
+
+
+function transferHand() {
+    if (hand.length == 4) {
+        hand.forEach ((item) => {
+            personal.push(item);
+        })
+        hand = [];
+    }
+    return hand;
 }
 
 function dealHand() {
@@ -66,15 +76,28 @@ function dealHand() {
         hand.push(personal[rand]);
         personal.splice(rand, 1);
     }
+    return hand;
 }
 
 function playHand() {
     for (i=0; i<4; i++) {
         time = time - hand[i][2]
     }
-    console.log(time)
-    dealHand()
+    return time
 }
+
+function setText() {
+    for (let i = 0; i < 4; i++) {
+    if (cards.id !== "personalDeck") {
+        cards[i].firstChild.textContent = hand[i][0]
+        cards[i].lastChild.textContent = hand[i][1]
+    }
+    };
+    timer.textContent = "TIME LEFT: "+time + "min";
+    happinessMeter.textContent = happy;
+}
+
+
 
 document.addEventListener("keydown", () => {
     shop.setAttribute("style", "display: flex;")
@@ -87,3 +110,20 @@ shopButton.addEventListener("click", () => {
     shop.setAttribute("style", "display: none;")
     content.setAttribute("style", "display: flex;")
 });
+
+
+cards.forEach( (card) => {
+    if (card.id !== "personalDeck") {
+        card.addEventListener("mouseenter", () => {
+            card.setAttribute("style", "background-color: #FFF2DE;")
+        });
+        card.addEventListener("mouseleave", () => {
+            card.setAttribute("style", "background-color: #FFFBF5;")
+        });
+//        card.addEventListener("click", () => {
+//            if (play.includes(card)) { play.splice(play.indexOf(card), 1 ) }
+//            else {play.push(card)};
+//            displayPos();
+//        }); 
+    }
+})
