@@ -98,18 +98,22 @@ function setText() {
     happinessMeter.textContent = happy;
 }
 
-playButton.addEventListener("click", () => { 
-    for (let i = 0; i < 4; i++) {
-        for (let g = 0; g < 4; g++) {
-            if (hand[g][0] == (play[i]).firstChild.textContent) {
-                play[i] = hand[g]
-                break;
+playButton.addEventListener("click", () => {
+    if (play.length == 4) {
+        for (let i = 0; i < 4; i++) {
+            for (let g = 0; g < 4; g++) {
+                if (hand[g][0] == (play[i]).firstChild.textContent) {
+                    play[i] = hand[g]
+                    break;
+                }
             }
         }
-    }
     console.log(play);
     playHand();
     turn();
+    }
+    
+    else {alert("You have not selected 4 cards yet.")};
 });
 
 
@@ -140,6 +144,7 @@ cards.forEach( (card) => {
             if (play.includes(card)) { play.splice(play.indexOf(card), 1 ) }
             else {play.push(card)};
             displayPos();
+            console.log(play);
         }); 
     }
 })
