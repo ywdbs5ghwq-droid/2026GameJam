@@ -99,7 +99,7 @@ function setText() {
 }
 
 playButton.addEventListener("click", () => {
-    if (play.length == 4) {
+    if (play.length == 4 || time == 0) {
         for (let i = 0; i < 4; i++) {
             for (let g = 0; g < 4; g++) {
                 if (hand[g][0] == (play[i]).firstChild.textContent) {
@@ -112,8 +112,10 @@ playButton.addEventListener("click", () => {
     playHand();
     turn();
     }
-    
-    else {alert("You have not selected 4 cards yet.")};
+
+    else if (time == 0) {alert("You won!")}
+    else if (play.length < 4) {alert("You have not selected 4 cards yet.")}
+    else {alert("Unknown error")};
 });
 
 
